@@ -71,7 +71,8 @@ Everything except the optional Anthropic/Groq backends runs **locally** on your 
 
 ## Demo
 
-> **▶ Watch the full demo video:** [https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view](https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view)
+> **▶ Watch the full demo video:** [Drive link](https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view)
+> **🎤 Pitch deck:** [Google Slides](https://docs.google.com/presentation/d/18HieGzWTsM55sKTlA3nkIlu6cFGBUHor/edit?usp=sharing)
 
 <div align="center">
 

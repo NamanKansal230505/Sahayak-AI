@@ -71,6 +71,18 @@ Everything except the optional Anthropic/Groq backends runs **locally** on your 
 
 ## Demo
 
+> **▶ Watch the full demo video:** [https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view](https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view)
+
+<div align="center">
+
+<a href="https://drive.google.com/file/d/1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt/view">
+  <img src="https://drive.google.com/thumbnail?id=1tqJc99mRPmOeuhHFSL74_2RjZzrq7EVt&sz=w1280" alt="SahaayakAI demo video — click to play" width="720" />
+</a>
+
+*Click the thumbnail above to play the demo on Google Drive.*
+
+</div>
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │   👁  Webcam → MediaPipe Iris → Kalman → cursor (30 FPS)        │
@@ -81,7 +93,7 @@ Everything except the optional Anthropic/Groq backends runs **locally** on your 
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-Demo recordings and the full screen-agent walkthrough live in [`demo/`](demo/).
+The full screen-agent walkthrough and recording notes live in [`demo/`](demo/).
 
 ---
 

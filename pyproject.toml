@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sahaayak-ai"
+version = "0.1.0"
+description = "Offline, hands-free, neurodivergent-friendly laptop co-pilot powered by Intel OpenVINO."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+authors = [{ name = "SahaayakAI Team" }]
+license = { text = "Apache-2.0" }
+keywords = ["accessibility", "openvino", "intel", "eye-tracking", "llm", "offline"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: GPU",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Adaptive Technologies",
+]
+
+[project.scripts]
+sahaayak = "sahaayak.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+sahaayak = ["../config/*.yaml", "copilot/prompts/*.txt"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "F", "W",   # pycodestyle / pyflakes
+    "I",             # isort
+    "B",             # flake8-bugbear
+    "UP",            # pyupgrade
+    "SIM",           # flake8-simplify
+    "S",             # flake8-bandit (security)
+]
+ignore = [
+    "E501",          # line length is enforced loosely; we keep most lines <100
+    "UP042",         # str-enum migration not yet stable across versions
+    "SIM105",        # contextlib.suppress is occasionally less readable
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106", "S110"]   # tests use assert and dummy values
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+# `asyncio_mode = "auto"` is set via pytest-asyncio's own config when the
+# package is installed; we don't pin it here to avoid a warning when it
+# isn't on PATH yet.

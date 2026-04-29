@@ -1,0 +1,88 @@
+# SahaayakAI default configuration.
+# Every tunable lives here. Do not hardcode magic numbers in src/.
+# Per-user overrides go in calibration_profile.yaml (gitignored).
+
+app:
+  name: SahaayakAI
+  version: "0.1.0"
+  language: en             # en | hi
+  log_level: INFO
+
+inference:
+  # OpenVINO device-selection string. AUTO will route per-model based on
+  # what intel_device.get_best_device() returns.
+  device_priority: ["NPU", "GPU", "CPU"]
+  vision_model_precision: FP16
+  llm_model_precision: INT4
+  llm_max_new_tokens: 512
+  llm_timeout_seconds: 30
+  llm_context_window: 4096
+
+camera:
+  index: 0
+  width: 640
+  height: 480
+  fps: 30
+
+eye_tracker:
+  # Hard privacy assertion — never write frames to disk.
+  persist_frames: false
+  persist_iris_embeddings: false
+  min_confidence: 0.6                 # below this, freeze cursor
+  low_confidence_grace_ms: 500        # confidence_gate latch period
+
+gaze:
+  smoothing: kalman                   # kalman | one_euro
+  kalman_process_noise: 0.01
+  kalman_measurement_noise: 0.05
+  one_euro_min_cutoff: 1.0
+  one_euro_beta: 0.007
+
+calibration:
+  point_count: 9
+  dwell_per_point_ms: 1500
+  recalibrate_if_confidence_below: 0.5
+  recalibrate_grace_seconds: 5
+  monocular_auto_detect: true
+
+gestures:
+  short_blink_ms: [80, 250]
+  long_blink_ms: 500
+  double_blink_window_ms: 600
+  dwell_click_ms: 800
+  gaze_off_screen_pause_ms: 2000
+  ear_blink_threshold: 0.21           # eye-aspect-ratio (canonical 6-point)
+  ear_wink_asymmetry: 0.15            # min diff between eyes to count as wink
+  wink_cooldown_ms: 1200              # min gap between two wink fires
+
+cursor:
+  smoothing_steps: 4                  # linear interpolation steps
+  failsafe_corner_enabled: true
+  multi_monitor_aware: true
+
+keyboard:
+  layout: qwerty                      # qwerty | devanagari
+  dwell_to_type_ms: 600
+  key_min_size_px: 80
+  prediction_count: 3
+  font_min_pt: 18
+
+safety:
+  kill_switch_hotkey: F12
+  rest_reminder_minutes: 20
+  rest_reminder_duration_seconds: 20
+  rest_snooze_max_minutes: 60
+  audit_log_path: ./audit_log.json    # local-only, user-readable
+
+ui:
+  theme: high_contrast
+  font_min_pt: 18
+  ai_disclaimer: "AI-generated, please review."
+
+focus_nudger:
+  window_switch_threshold: 5
+  window_switch_window_seconds: 60
+
+i18n:
+  fallback_language: en
+  available: ["en", "hi"]

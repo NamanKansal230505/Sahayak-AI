@@ -1,0 +1,2 @@
+# Placeholder so the empty models/ dir is tracked.
+# Real model files (.xml/.bin/.onnx) are gitignored.

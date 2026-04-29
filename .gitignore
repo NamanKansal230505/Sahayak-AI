@@ -1,0 +1,102 @@
+# ─── Python ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+.eggs/
+.installed.cfg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─── Test / lint caches ─────────────────────────────────────────────────
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+
+# ─── Virtual environments ───────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# ─── Editors / IDEs ─────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Secrets / local config ─────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.yaml
+.claude/
+
+# ─── Models & weights — NEVER commit large binaries ─────────────────────
+models/*.xml
+models/*.bin
+models/*.onnx
+models/*.pt
+models/*.pth
+models/*.safetensors
+models/*.gguf
+models/*.tflite
+models/cache/
+models/phi-3-mini-int4-ov/
+models/iris/
+models/whisper/
+
+# ─── Per-user state — privacy ───────────────────────────────────────────
+config/calibration_profile.yaml
+audit_log.json
+*.log
+logs/
+
+# ─── Webcam / microphone captures must NEVER appear here ────────────────
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.flac
+*.ogg
+!docs/assets/**
+!demo/assets/**
+!tests/fixtures/synthetic_*.png
+
+# ─── Build artifacts ────────────────────────────────────────────────────
+build/
+dist/
+*.spec
+.pyinstaller/
+
+# ─── Misc ───────────────────────────────────────────────────────────────
+benchmark_report.json
+*.tmp
+*.bak
+*.old
